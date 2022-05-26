@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.natatorium.mapper.NotifyMapper">
+
+    <resultMap id="BaseResultMap" type="com.example.natatorium.entity.Notify">
+            <id property="id" column="id" jdbcType="INTEGER"/>
+            <result property="title" column="title" jdbcType="VARCHAR"/>
+            <result property="contents" column="contents" jdbcType="VARCHAR"/>
+            <result property="createTime" column="create_time" jdbcType="TIMESTAMP"/>
+            <result property="createBy" column="create_by" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,title,contents,
+        create_time,create_by
+    </sql>
+    <select id="getLatest" resultType="com.example.natatorium.entity.Notify">
+        SELECT a.*
+        from notify a
+        WHERE a.id = (select MAX(b.id) from notify b)
+    </select>
+</mapper>

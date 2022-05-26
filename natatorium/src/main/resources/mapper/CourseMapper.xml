@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.natatorium.mapper.CourseMapper">
+
+    <resultMap id="BaseResultMap" type="com.example.natatorium.entity.Course">
+            <id property="id" column="id" jdbcType="INTEGER"/>
+            <result property="courseName" column="course_name" jdbcType="VARCHAR"/>
+            <result property="coach" column="coach" jdbcType="VARCHAR"/>
+            <result property="startDate" column="start_date" jdbcType="DATE"/>
+            <result property="endDate" column="end_date" jdbcType="DATE"/>
+            <result property="classBegins" column="class_begins" jdbcType="TIME"/>
+            <result property="classEnds" column="class_ends" jdbcType="TIME"/>
+            <result property="courseCover" column="course_cover" jdbcType="INTEGER"/>
+            <result property="enable" column="enable" jdbcType="TINYINT"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,course_name,coach,
+        start_date,end_date,class_begins,
+        class_ends,course_cover,enable
+    </sql>
+    <select id="ucPage" resultMap="BaseResultMap"
+            parameterType="com.example.natatorium.common.PageParams">
+        SELECT c.* FROM user_course uc
+            left join course c
+            on uc.course_id = c.id
+        where uc.user_id = #{id} and
+          <if test="enable!= null">
+              c.enable = #{enable}
+          </if>
+          <if test="currentPage != null and pageSize != null">
+              LIMIT #{currentPage},#{pageSize};
+          </if>
+    </select>
+</mapper>

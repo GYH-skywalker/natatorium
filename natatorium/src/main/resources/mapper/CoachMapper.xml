@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.natatorium.mapper.CoachMapper">
+
+    <resultMap id="BaseResultMap" type="com.example.natatorium.entity.Coach">
+            <id property="id" column="id" jdbcType="INTEGER"/>
+            <result property="lifeguardNumber" column="lifeguard_number" jdbcType="VARCHAR"/>
+            <result property="lifeguardCertificationNumber" column="lifeguard_certification_number" jdbcType="VARCHAR"/>
+            <result property="coachName" column="coach_name" jdbcType="VARCHAR"/>
+            <result property="gender" column="gender" jdbcType="TINYINT"/>
+            <result property="age" column="age" jdbcType="INTEGER"/>
+            <result property="phone" column="phone" jdbcType="VARCHAR"/>
+            <result property="seniority" column="seniority" jdbcType="INTEGER"/>
+            <result property="coachPhoto" column="coach_photo" jdbcType="VARCHAR"/>
+            <result property="signaturePic" column="signature_pic" jdbcType="VARCHAR"/>
+            <result property="remarks" column="remarks" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,lifeguard_number,lifeguard_certification_number,
+        coach_name,gender,age,
+        phone,seniority,coach_photo,
+        signature_pic,remarks
+    </sql>
+    <select id="getAllCoachName" resultType="java.lang.String">
+        SELECT coach_name FROM coach;
+    </select>
+</mapper>

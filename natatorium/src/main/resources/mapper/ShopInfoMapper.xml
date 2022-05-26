@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.natatorium.mapper.ShopInfoMapper">
+
+    <resultMap id="BaseResultMap" type="com.example.natatorium.entity.ShopInfo">
+            <id property="id" column="id" jdbcType="INTEGER"/>
+            <result property="shopName" column="shop_name" jdbcType="VARCHAR"/>
+            <result property="shopPrincipal" column="shop_principal" jdbcType="VARCHAR"/>
+            <result property="principalPhone" column="principal_phone" jdbcType="VARCHAR"/>
+            <result property="shopPhone" column="shop_phone" jdbcType="VARCHAR"/>
+            <result property="address" column="address" jdbcType="VARCHAR"/>
+            <result property="qrCode" column="QR_code" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,shop_name,shop_principal,
+        principal_phone,shop_phone,address,
+        QR_code
+    </sql>
+</mapper>

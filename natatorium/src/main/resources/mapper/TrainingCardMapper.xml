@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.natatorium.mapper.TrainingCardMapper">
+
+    <resultMap id="BaseResultMap" type="com.example.natatorium.entity.TrainingCard">
+            <id property="id" column="id" jdbcType="INTEGER"/>
+            <result property="expireTime" column="expire_time" jdbcType="DATE"/>
+            <result property="packagePrice" column="package_price" jdbcType="INTEGER"/>
+            <result property="permitDeltaT" column="permit_delta_t" jdbcType="INTEGER"/>
+            <result property="period" column="period" jdbcType="INTEGER"/>
+            <result property="warnPeriod" column="warn_period" jdbcType="INTEGER"/>
+            <result property="population" column="population" jdbcType="INTEGER"/>
+            <result property="coach" column="coach" jdbcType="VARCHAR"/>
+            <result property="remarks" column="remarks" jdbcType="VARCHAR"/>
+            <result property="enable" column="enable" jdbcType="TINYINT"/>
+            <result property="isOnline" column="is_online" jdbcType="TINYINT"/>
+            <result property="trainingCardcol" column="training_cardcol" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,expire_time,package_price,
+        permit_delta_t,period,warn_period,
+        population,coach,remarks,
+        enable,is_online,training_cardcol
+    </sql>
+</mapper>

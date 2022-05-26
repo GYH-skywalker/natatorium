@@ -1,0 +1,12 @@
+{
+  "navigationBarTitleText": "natatorium",
+  "enablePullDownRefresh": false,
+  "usingComponents": {
+    "u-swiper": "/node-modules/uview-ui/components/u-swiper/u-swiper",
+    "u-grid": "/node-modules/uview-ui/components/u-grid/u-grid",
+    "u-grid-item": "/node-modules/uview-ui/components/u-grid-item/u-grid-item",
+    "u-icon": "/node-modules/uview-ui/components/u-icon/u-icon",
+    "u-button": "/node-modules/uview-ui/components/u-button/u-button",
+    "uni-card": "/uni_modules/uni-card/components/uni-card/uni-card"
+  }
+}

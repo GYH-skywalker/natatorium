@@ -1,0 +1,18 @@
+{
+  "name": "mobileApplet",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "dependencies": {
+    "sass": "^1.51.0",
+    "sass-loader": "^10.2.1",
+    "uview-ui": "^2.0.31"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

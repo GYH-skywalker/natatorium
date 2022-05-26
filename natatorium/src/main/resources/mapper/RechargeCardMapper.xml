@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.natatorium.mapper.RechargeCardMapper">
+
+    <resultMap id="BaseResultMap" type="com.example.natatorium.entity.RechargeCard">
+            <id property="id" column="id" jdbcType="INTEGER"/>
+            <result property="packageName" column="package_name" jdbcType="VARCHAR"/>
+            <result property="packagePrice" column="package_price" jdbcType="FLOAT"/>
+            <result property="givenAmount" column="given_amount" jdbcType="FLOAT"/>
+            <result property="warnAmount" column="warn_amount" jdbcType="FLOAT"/>
+            <result property="remark" column="remark" jdbcType="VARCHAR"/>
+            <result property="enable" column="enable" jdbcType="TINYINT"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,package_name,package_price,
+        given_amount,warn_amount,remark,
+        enable
+    </sql>
+</mapper>

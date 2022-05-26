@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.natatorium.mapper.OwnerCardMapper">
+
+    <resultMap id="BaseResultMap" type="com.example.natatorium.entity.OwnerCard">
+            <id property="id" column="id" jdbcType="INTEGER"/>
+            <result property="packageName" column="package_name" jdbcType="VARCHAR"/>
+            <result property="packagePrice" column="package_price" jdbcType="FLOAT"/>
+            <result property="packageYear" column="package_year" jdbcType="OTHER"/>
+            <result property="startTime" column="start_time" jdbcType="TIMESTAMP"/>
+            <result property="endTime" column="end_time" jdbcType="TIMESTAMP"/>
+            <result property="remarks" column="remarks" jdbcType="VARCHAR"/>
+            <result property="enable" column="enable" jdbcType="TINYINT"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,package_name,package_price,
+        package_year,start_time,end_time,
+        remarks,enable
+    </sql>
+</mapper>

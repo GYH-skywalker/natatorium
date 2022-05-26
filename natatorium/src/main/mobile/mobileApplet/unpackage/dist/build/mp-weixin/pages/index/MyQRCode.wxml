@@ -1,0 +1,1 @@
+<view class="myQRcode data-v-fa26161a"><view class="cardInfo data-v-fa26161a"><label class="_span data-v-fa26161a">剩余次数:</label>{{cardInfo+''}}</view><view class="VIPCard data-v-fa26161a"><view class="QRCode data-v-fa26161a"><image src="{{QRImg}}" mode class="data-v-fa26161a"></image></view></view></view>

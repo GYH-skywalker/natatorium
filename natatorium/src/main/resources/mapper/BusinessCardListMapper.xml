@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.natatorium.mapper.BusinessCardListMapper">
+
+    <resultMap id="BaseResultMap" type="com.example.natatorium.entity.BusinessCardList">
+            <result property="id" column="id" jdbcType="INTEGER"/>
+            <result property="packageName" column="package_name" jdbcType="VARCHAR"/>
+            <result property="coachName" column="coach_name" jdbcType="VARCHAR"/>
+            <result property="cardNumber" column="card_number" jdbcType="VARCHAR"/>
+            <result property="createTime" column="create_time" jdbcType="TIMESTAMP"/>
+            <result property="cardType" column="card_type" jdbcType="VARCHAR"/>
+            <result property="enable" column="enable" jdbcType="TINYINT"/>
+            <result property="cardUserName" column="card_user_name" jdbcType="VARCHAR"/>
+            <result property="cardUserGender" column="card_user_gender" jdbcType="TINYINT"/>
+            <result property="cardUserAge" column="card_user_age" jdbcType="INTEGER"/>
+            <result property="cardUserPhone" column="card_user_phone" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,package_name,coach_name,
+        card_number,create_time,card_type,
+        enable,card_user_name,card_user_gender,
+        card_user_age,card_user_phone
+    </sql>
+<!--    <resultMap id="date" type="com.example.natatorium.entity.VO.LineChart">-->
+<!--        <result property="month" column="month" jdbcType="DATE"/>-->
+<!--        <result property="year" column="year" jdbcType="DATE"/>-->
+<!--        <result property="data" column="data" jdbcType="INTEGER"/>-->
+<!--    </resultMap>-->
+    <select id="groupByMonth" parameterType="string" resultType="com.example.natatorium.entity.VO.LineChart">
+        SELECT
+            MONTH ( create_time ) as 'month' , YEAR ( create_time ) as 'year',
+            COUNT(*) as data
+        FROM
+            business_card_list
+        <where>
+            <if test="start != null and end != null">
+                create_time BETWEEN DATE_FORMAT(#{start},'%Y-%m-%d') AND DATE_FORMAT(#{end},'%Y-%m-%d')
+            </if>
+        </where>
+        GROUP BY
+            MONTH ( create_time )  + '-' + YEAR ( create_time )
+        ORDER BY YEAR(create_time), MONTH(create_time);
+    </select>
+    <select id="groupByType" resultType="com.example.natatorium.entity.VO.NightingaleChart">
+        SELECT card_type as 'name', count(*) as 'value'
+        from business_card_list
+        GROUP BY card_type
+        ORDER BY COUNT(*) DESC
+    </select>
+</mapper>

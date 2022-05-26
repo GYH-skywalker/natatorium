@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.natatorium.mapper.BusinessListMapper">
+
+    <resultMap id="BaseResultMap" type="com.example.natatorium.entity.BusinessList">
+            <id property="id" column="id" jdbcType="INTEGER"/>
+            <result property="packageName" column="package_name" jdbcType="VARCHAR"/>
+            <result property="coachName" column="coach_name" jdbcType="VARCHAR"/>
+            <result property="cardNumber" column="card_number" jdbcType="VARCHAR"/>
+            <result property="createTime" column="create_time" jdbcType="TIMESTAMP"/>
+            <result property="cardUserName" column="card_user_name" jdbcType="VARCHAR"/>
+            <result property="cardUserGender" column="card_user_gender" jdbcType="CHAR"/>
+            <result property="cardUserAge" column="card_user_age" jdbcType="SMALLINT"/>
+            <result property="cardUserPhone" column="card_user_phone" jdbcType="VARCHAR"/>
+            <result property="cardStatus" column="card_status" jdbcType="TINYINT"/>
+            <result property="isUsing" column="is_using" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,package_name,coach_name,
+        card_number,create_time,card_user_name,
+        card_user_gender,card_user_age,card_user_phone,
+        card_status,is_using
+    </sql>
+</mapper>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.natatorium.mapper.TicketSettingMapper">
+
+    <resultMap id="BaseResultMap" type="com.example.natatorium.entity.TicketSetting">
+            <id property="id" column="id" jdbcType="INTEGER"/>
+            <result property="ticketName" column="ticket_name" jdbcType="VARCHAR"/>
+            <result property="ticketPrice" column="ticket_price" jdbcType="DECIMAL"/>
+            <result property="ticketTimeLimit" column="ticket_time_limit" jdbcType="INTEGER"/>
+            <result property="remarks" column="remarks" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,ticket_name,ticket_price,
+        ticket_time_limit,remarks
+    </sql>
+</mapper>

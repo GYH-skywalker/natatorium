@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.natatorium.mapper.MenuMapper">
+    <select id="selectMenusByRole" resultType="com.example.natatorium.entity.menus">
+        select *
+        from sys_menu
+        where id
+                  in (
+                      select menu_id
+                      from role_menu_map
+                      where role_id = #{roleId}
+                      )
+        and function_marks = "menu"
+    </select>
+    <select id="selectPermsByRole" resultType="java.lang.String">
+        select permissions
+        from sys_menu
+        where id
+                  in (
+                  select menu_id
+                  from role_menu_map
+                  where role_id = #{roleId}
+              )
+    </select>
+</mapper>

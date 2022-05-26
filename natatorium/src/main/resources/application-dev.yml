@@ -1,0 +1,16 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/natatorium_ms?serverTimezone=GMT%2b8
+    username: root
+    password: root
+
+
+files:
+  upload:
+    path: G:/upload/files/
+    location: /files/**
+
+
+serverLocation:
+  url: http://localhost:9090/files/
